@@ -122,7 +122,7 @@ const ThreeScene = () => {
   }, []);
   return (
     // <div className="absolute w-[100vw] h-[110vh] bg-gradient-to-t from-gray-100 to-transparent -bottom-[100vh]">
-    <div className="absolute w-[100vw] ">
+    <div className="absolute w-[100vw] overflow-hidden">
       <canvas className="webgl -z-[20] absolute top-0 left-0 "/>
     </div>
   )

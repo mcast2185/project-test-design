@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/threeScene.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/threeScene.jsx", "src/components/GSAPparallax.jsx", "src/app/(user)/page.jsx", "src/pages/services.jsx"],
   "exclude": ["node_modules"]
 }

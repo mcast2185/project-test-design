@@ -3,21 +3,19 @@
 import dynamic from "next/dynamic";
 import { ArrowDown } from "lucide-react";
 import React, { useEffect, useRef } from 'react';
-import { useScroll, motion, useAnimation, useTransform, useMotionValue, useInView } from 'framer-motion';
+import { useScroll, motion, useAnimation, useInView } from 'framer-motion';
 
 import Menu from '../components/menu';
-// import ThreeScene from "@/components/threeScene";
 import { TitleControl, TitleControlThree, TitleControlTwo } from '@/components/framerControls';
-import About from "./about";
+
 
 const DynamicBackGround = dynamic(() => import("../components/threeScene"), {
   loading: () => <></>,
 
-})
+});
 
 
 export default function Home() {
-
   const ref = useRef(null);
   const { scrollYProgress } = useScroll();
   const isInView = useInView(ref, { once: true });
@@ -38,12 +36,11 @@ export default function Home() {
       });
     };
 
-  })
+  });
 
   return (
-    <main className=" flex min-h-screen flex-col  py-[2.5%]">
+    <main className=" flex min-h-screen flex-col">
       <Menu/>
-    {/* <main className="flex min-h-screen flex-col items-center justify-between p-24 w-[100vw] h-[100vh]"> */}
       <DynamicBackGround/>
       <div className='flex flex-col h-[100vh] w-[100vw]  '>
         
@@ -53,7 +50,6 @@ export default function Home() {
               </div>
           </div>
         </div>
-
 
         <div className='h-[55%] w-full px-[4.5rem] mt-[2.5rem]'>
           <div className='cursor-default flex-row justify-start items-center w-[60%] h-full  tracking-[.19rem] italic'>
@@ -99,20 +95,15 @@ export default function Home() {
           <div className='flex-1'>
             <div className='group/arrows cursor-pointer h-[8rem] relative w-[8rem] border border-gray-300 rounded-full flex justify-center items-center transform hover:scale-90 ease-in-out duration-700 hover:border-[#5d1da1] '>
               <div className=' h-[48px] w-[40px] overflow-hidden flex justify-center flex-col '>
-              {/* <div className=' h-[48px] w-[40px] border-b border-transparent group-hover/arrows:border-slate-300 overflow-hidden flex justify-center flex-col group-hover:[.arrow]:scale-100 '> */}
                 <span className=''>
                   <ArrowDown className="w-[40px] h-[64px] text-gray-300 group-hover/arrows:text-[--yellow] group-hover/arrows:translate-y-16 transform-none ease-in-out duration-[850ms]"/>
                   <ArrowDown className="w-[40px] h-[64px] mb-[55px] text-gray-300  group-hover/arrows:translate-y-11 transform-none ease-in-out duration-700"/>
                 </span>
-                {/* <div className="arrowTwo">
-                  <ArrowDown id="hiddenArrowDown" className="arrows w-[40px] h-[64px] text-gray-300"/>
-                </div> */}
                
               </div>
             </div>
           </div>
           <div className='cursor-default w-[55%] flex '>
-           {/* insert synopsis */}
             <p className="font-Inter font-light text-2xl leading-10 text-slate-300">
               We are a design company focused on <span className="underline decoration-[--yellow]">providing</span> your business allure through art.
             </p>

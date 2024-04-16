@@ -1,25 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import React, { 
-  useEffect, 
-  useRef, 
-  useState 
-} from 'react';
-import {gsap} from "gsap";
 import Image from 'next/image';
+import { gsap } from "gsap";
 import { useGSAP } from '@gsap/react';
 import { ArrowUpRight } from 'lucide-react';
-import {
-  useScroll,
-  motion,
-  useTransform,
-  useAnimation,
-  AnimatePresence
-} from 'framer-motion';
+import React, { useRef, useState } from 'react';
 
+import LOGO from "../../public/images/Logo.svg";
+import useIsomorphicLayoutEffect from './hooks/morphicLayout';
 
-import LOGO from "../../public/images/Logo.svg"
 
 const Menu = () => {
   const tl = useRef<any>(null);
@@ -56,32 +46,27 @@ const Menu = () => {
       ease: "power4.inOut",
       delay: -0.75,
     });
-
   }, {scope: ref});
 
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (menuIsOpen) {
       tl.current.play();
     } else {
-      tl.current.reverse()
+      tl.current.reverse();
     }
-  }, [menuIsOpen])
+  }, [menuIsOpen]);
 
+  
   return (
     <div ref={ref} className='menuRef'>
       <div className="menuBar">
-        {/* <div className="menuLogo">
-          <Link href="/">HUB</Link>
-        </div> */}
         <div className="menuOpen" onClick={toggleMenu}>
-          {/* <h3>Menu</h3> */}
           <div className='menuOpenLogo'>
            <Image src={LOGO} alt='logo' className='w-full h-full p-[.25rem]'/>
           </div>
         </div>
         
- 
         <div className=''>
           <div className='menuBurger group/burgerLines cursor-pointer w-[9vw] h-[50px] overflow-hidden relative flex flex-row justify-center transform ease-in'>
             <div className='w-[190px] flex flex-row relative justify-around '>          
@@ -99,7 +84,6 @@ const Menu = () => {
           </div>
         </div>
        
-
       </div>
       <div className="menuOverlay">
         <div className="menuOverlayBar">
@@ -122,13 +106,12 @@ const Menu = () => {
             {dynamicLinks("/contact", "Contact Us")}
 
           </div>
+
           <div className="menuInfo">
             <div className="menuInfoCol">
               <span className='flex flex-row items-start'><a href="#">X </a><a href='/'><ArrowUpRight className='h-[1rem]' /></a></span>
               <span className='flex flex-row items-start'><a href="#">Instagram </a><a href='/'><ArrowUpRight className='h-[1rem]' /></a></span>
               <span className='flex flex-row items-start'><a href="#">LinkedIn </a><a href='/'><ArrowUpRight className='h-[1rem]' /></a></span>
-              {/* <a href="#">Instagram &#8599;</a> */}
-              {/* <a href="#">LinkedIn &#8599;</a> */}
             </div>
             <div className="menuInfoCol">
               <p className=''>
@@ -139,6 +122,7 @@ const Menu = () => {
               </p>
             </div>
           </div>
+
         </div>
         <div className="menuPreview">
           <p className=''>
@@ -147,7 +131,7 @@ const Menu = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 

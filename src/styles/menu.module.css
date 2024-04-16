@@ -29,6 +29,7 @@
 }
 
 /* .menuBar,  */
+.menuBar,
 .menuOverlay {
   position: fixed;
   top: 0;
